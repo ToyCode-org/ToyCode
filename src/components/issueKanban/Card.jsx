@@ -17,7 +17,9 @@ export const Card = ({
       onDragStart={(e) =>
         dndEvent.dragStart(e, cardData, setDndStatus, setDndFormData)
       }
-      onDragOver={dndEvent.dragOver}
+      // onDragEnter={(e) => dndEvent.dragEnter(e)}
+      // onDragLeave={(e) => dndEvent.dragLeave(e)}
+      onDragOver={(e) => dndEvent.dragOver(e)}
       onDrop={(e) => dndEvent.drop(e, cardData, setDndStatus)}
       onDragEnd={(e) =>
         dndEvent.dragEnd(
@@ -55,7 +57,6 @@ const Container = styled.div`
 const ContentWrap = styled.div`
   display: flex;
   flex-direction: column;
-
   width: 100%;
 `;
 

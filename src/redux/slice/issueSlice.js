@@ -64,8 +64,8 @@ export const issueSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getIssues.fulfilled, (state, action) => {
-      state.lastSortId = action.payload[action.payload.length - 1].sortId;
       state.issue = action.payload.sort((a, b) => a.sortId - b.sortId);
+      state.lastSortId = state.issue[state.issue.length - 1].sortId;
     });
     builder.addCase(addIssues.fulfilled, (state, action) => {
       state.issue.push(action.payload);

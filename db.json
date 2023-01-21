@@ -2,19 +2,19 @@
   "issues": [
     {
       "id": 4,
-      "sortId": 33.70000000000001,
+      "sortId": 53.500000000000036,
       "title": "json-server",
       "content": "typicode",
-      "status": "done"
+      "status": "todo"
     },
     {
-      "sortId": 15,
+      "sortId": 59.80000000000004,
       "content": "ㅎㅇㅎㅇ",
       "status": "done",
       "id": 15
     },
     {
-      "sortId": 1,
+      "sortId": 16,
       "title": "ㅎㅇㅎㅇ",
       "content": "ㅎㅇㅎㅇㅎ",
       "status": "working",
@@ -28,7 +28,7 @@
       "id": 17
     },
     {
-      "sortId": 33.70000000000001,
+      "sortId": 64.30000000000005,
       "title": "ㅎㅇㅎㅇ",
       "content": "ㅇㅎㅇㅎ",
       "status": "working",
@@ -42,10 +42,10 @@
       "id": 19
     },
     {
-      "sortId": 31.500000000000007,
+      "sortId": 65.50000000000004,
       "title": "ㅎㅎㅇㅇ",
       "content": "ㅎㅇㅎㅇㅎㅇㅎ",
-      "status": "working",
+      "status": "done",
       "id": 20
     },
     {
@@ -63,24 +63,24 @@
       "id": 22
     },
     {
-      "sortId": 23,
+      "sortId": 64.40000000000005,
       "title": "ㅇㅎㅎㅇ",
       "content": "ㅎㅇㅇㅎ",
-      "status": "todo",
+      "status": "working",
       "id": 23
     },
     {
-      "sortId": 30.400000000000006,
       "title": "ㅎㅇㅎㅇ",
       "content": "ㅎㅇㅎㅇㅎㅇ",
-      "status": "done",
-      "id": 24
+      "status": "working",
+      "id": 24,
+      "sortId": 65.50000000000004
     },
     {
-      "sortId": 31.400000000000006,
+      "sortId": 32.300000000000004,
       "title": "ㅎㅇㅎㅇ",
       "content": "ㅎㅇㅇㅎㅇㅎ",
-      "status": "working",
+      "status": "done",
       "id": 25
     }
   ],

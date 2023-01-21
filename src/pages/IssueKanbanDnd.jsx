@@ -20,12 +20,16 @@ export const IssueKanbanDnd = () => {
     issueData?.filter((item) => item.status === "working"),
     issueData?.filter((item) => item.status === "done"),
   ];
+  console.log("originData", issue);
+  console.log("lastSortId", lastSortId);
+  console.log("for sorting", newIssueArr);
 
   const initDndStatus = {
     startId: 0,
     endId: 0,
     startSortId: 0,
-    endSortId: lastSortId + 1,
+    endSortId: issueData[issueData?.length - 1]?.sortId,
+    // endSortId: lastSortId + 1,
     position: null,
     isDragOver: false,
     startStatus: "",

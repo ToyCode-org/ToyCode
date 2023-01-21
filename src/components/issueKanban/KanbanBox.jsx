@@ -69,4 +69,9 @@ const CardBox = styled.div`
   justify-content: flex-start;
   min-height: 50vh;
   overflow-y: auto;
+
+  background: white;
+  & .dragging {
+    opacity: 0.3;
+  }
 `;

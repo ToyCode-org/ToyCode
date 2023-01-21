@@ -16,15 +16,16 @@ export const dndEvent = {
       formData: cardData,
     }));
     setDndFormData(cardData);
+
+    e.target.classList.add("dragging");
   },
   drag: (e) => {
     dragFunction(e, "drag");
   },
-  // 미사용, dnd event 순서 정리용 코드
-  // dragEnter: (e, setDndStatus) => {
-  //   // dragFunction(e, "dragEnter");
-  //   setDndStatus((prev) => ({ ...prev, isDragOver: true }));
-  // },
+  // 스탙일 부여용 이벤트
+  dragEnter: (e) => {
+    dragFunction(e, "dragEnter");
+  },
   dragOver: (e) => {
     dragFunction(e, "dragOver");
   },
@@ -38,11 +39,10 @@ export const dndEvent = {
       isDragOver: true,
     }));
   },
-  // 미사용, dnd event 순서 정리용 코드
-  // dragLeave: (e, setDndStatus) => {
-  //   dragFunction(e, "dragLeave");
-  //   setDndStatus((prev) => ({ ...prev, isDragOver: false }));
-  // },
+  // 스탙일 부여용 이벤트
+  dragLeave: (e) => {
+    dragFunction(e, "dragLeave");
+  },
   dragEnd: (
     e,
     dndFormData,
@@ -60,6 +60,7 @@ export const dndEvent = {
     };
     if (dndStatus.isDragOver) dispatch(updateIssues(newFormData));
     setDndStatus(initDndStatus);
+    e.target.classList.remove("dragging");
   },
 
   // 박스용
