@@ -25,7 +25,7 @@ export const IssueKanbanDnd = () => {
     startId: 0,
     endId: 0,
     startSortId: 0,
-    endSortId: issueData[issueData?.length - 1]?.sortId + 1,
+    endSortId: lastSortId + 1,
     position: null,
     isDragOver: false,
     startStatus: "",
@@ -35,7 +35,8 @@ export const IssueKanbanDnd = () => {
   const [dndFormData, setDndFormData] = useState({});
   useEffect(() => {
     setIssueData(issue);
-  }, [issue, dndStatus]);
+    setDndStatus((prev) => ({ ...prev, endSortId: lastSortId + 1 }));
+  }, [issue, lastSortId]);
 
   return (
     <Container>

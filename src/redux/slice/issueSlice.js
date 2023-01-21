@@ -65,7 +65,9 @@ export const issueSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getIssues.fulfilled, (state, action) => {
       state.issue = action.payload.sort((a, b) => a.sortId - b.sortId);
-      state.lastSortId = state.issue[state.issue.length - 1].sortId;
+      state.lastSortId = action.payload.sort((a, b) => a.sortId - b.sortId)[
+        action.payload.length - 1
+      ].sortId;
     });
     builder.addCase(addIssues.fulfilled, (state, action) => {
       state.issue.push(action.payload);
@@ -80,7 +82,7 @@ export const issueSlice = createSlice({
           : item
       );
       state.issue = newState.sort((a, b) => a.sortId - b.sortId);
-      state.lastSortId = state.issue[state.issue.length - 1].sortId + 0.1;
+      state.lastSortId += 1;
     });
     builder.addCase(deleteIssues.fulfilled, (state, action) => {
       const newState = state.issue.filter((item) => item.id !== action.payload);
