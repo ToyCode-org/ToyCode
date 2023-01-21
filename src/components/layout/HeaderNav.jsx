@@ -11,9 +11,10 @@ export const HeaderNav = () => {
         <button onClick={() => navigate("/")}>홈</button>
         <button onClick={() => navigate("/rendertest")}>렌더링 테스트</button>
         <button onClick={() => navigate("/dndkanban")}>칸반보드</button>
-        <button>기타</button>
-        <button>기타</button>
-        <button>기타</button>
+        <button onClick={() => navigate("/pagenation")}>페이지네이션</button>
+        <button onClick={() => navigate("/infiscroll")}>무한스크롤</button>
+        <button onClick={() => navigate("/slideshow")}>슬라이드</button>
+        <button onClick={() => navigate("/infislideshow")}>무한슬라이드</button>
       </ButtonsWrap>
     </Container>
   );

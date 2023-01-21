@@ -20,9 +20,6 @@ export const IssueKanbanDnd = () => {
     issueData?.filter((item) => item.status === "working"),
     issueData?.filter((item) => item.status === "done"),
   ];
-  console.log("originData", issue);
-  console.log("lastSortId", lastSortId);
-  console.log("for sorting", newIssueArr);
 
   const initDndStatus = {
     startId: 0,

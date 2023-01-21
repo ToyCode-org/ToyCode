@@ -17,10 +17,8 @@ export const Card = ({
       onDragStart={(e) =>
         dndEvent.dragStart(e, cardData, setDndStatus, setDndFormData)
       }
-      // onDragEnter={(e) => dndEvent.dragEnter(e, setDndStatus)}
       onDragOver={dndEvent.dragOver}
       onDrop={(e) => dndEvent.drop(e, cardData, setDndStatus)}
-      // onDragLeave={(e) => dndEvent.dragLeave(e, setDndStatus)}
       onDragEnd={(e) =>
         dndEvent.dragEnd(
           e,

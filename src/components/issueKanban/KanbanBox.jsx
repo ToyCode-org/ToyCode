@@ -18,10 +18,8 @@ export const KanbanBox = ({
 
   return (
     <Container
-      // onDragEnter={(e) => dndEvent.dragEnter(e, setDndStatus)}
       onDragOver={dndEvent.dragOver}
-      onDrop={(e) => dndEvent.dropBox(e, thisKanbanStatus, setDndStatus)} // box의 drop을 거치지 않고 카드의 end 이벤트로 끝남
-      // onDragLeave={(e) => dndEvent.dragLeave(e, setDndStatus)}
+      onDrop={(e) => dndEvent.dropBox(e, thisKanbanStatus, setDndStatus)}
       onDragEnd={(e) =>
         dndEvent.dragEnd(
           e,

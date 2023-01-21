@@ -3,7 +3,6 @@ import { updateIssues } from "../redux/slice/issueSlice";
 export const dragFunction = (e, type) => {
   e.preventDefault();
   e.stopPropagation();
-  console.log(type);
 };
 
 export const dndEvent = {
@@ -21,10 +20,11 @@ export const dndEvent = {
   drag: (e) => {
     dragFunction(e, "drag");
   },
-  dragEnter: (e, setDndStatus) => {
-    // dragFunction(e, "dragEnter");
-    setDndStatus((prev) => ({ ...prev, isDragOver: true }));
-  },
+  // 미사용, dnd event 순서 정리용 코드
+  // dragEnter: (e, setDndStatus) => {
+  //   // dragFunction(e, "dragEnter");
+  //   setDndStatus((prev) => ({ ...prev, isDragOver: true }));
+  // },
   dragOver: (e) => {
     dragFunction(e, "dragOver");
   },
@@ -38,10 +38,11 @@ export const dndEvent = {
       isDragOver: true,
     }));
   },
-  dragLeave: (e, setDndStatus) => {
-    dragFunction(e, "dragLeave");
-    setDndStatus((prev) => ({ ...prev, isDragOver: false }));
-  },
+  // 미사용, dnd event 순서 정리용 코드
+  // dragLeave: (e, setDndStatus) => {
+  //   dragFunction(e, "dragLeave");
+  //   setDndStatus((prev) => ({ ...prev, isDragOver: false }));
+  // },
   dragEnd: (
     e,
     dndFormData,
@@ -57,8 +58,6 @@ export const dndEvent = {
         dndStatus.endId === 0 ? dndStatus.endSortId : dndStatus.endSortId - 0.1,
       status: dndStatus.endStatus,
     };
-
-    console.log("최종 폼데이터", newFormData);
     if (dndStatus.isDragOver) dispatch(updateIssues(newFormData));
     setDndStatus(initDndStatus);
   },
