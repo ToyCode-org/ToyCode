@@ -2,22 +2,22 @@
   "issues": [
     {
       "id": 4,
-      "sortId": 53.500000000000036,
+      "sortId": 74.40000000000005,
       "title": "json-server",
       "content": "typicode",
       "status": "todo"
     },
     {
-      "sortId": 59.80000000000004,
+      "sortId": 69.50000000000004,
       "content": "ㅎㅇㅎㅇ",
       "status": "done",
       "id": 15
     },
     {
-      "sortId": 16,
+      "sortId": 75.50000000000004,
       "title": "ㅎㅇㅎㅇ",
       "content": "ㅎㅇㅎㅇㅎ",
-      "status": "working",
+      "status": "todo",
       "id": 16
     },
     {
@@ -42,7 +42,7 @@
       "id": 19
     },
     {
-      "sortId": 65.50000000000004,
+      "sortId": 70.50000000000004,
       "title": "ㅎㅎㅇㅇ",
       "content": "ㅎㅇㅎㅇㅎㅇㅎ",
       "status": "done",
@@ -56,7 +56,7 @@
       "id": 21
     },
     {
-      "sortId": 22,
+      "sortId": 74.50000000000004,
       "title": "ㅎㅇㅎㅇ",
       "content": "ㅇㅎㅎㅇㅇㅎ",
       "status": "todo",
@@ -74,7 +74,7 @@
       "content": "ㅎㅇㅎㅇㅎㅇ",
       "status": "working",
       "id": 24,
-      "sortId": 65.50000000000004
+      "sortId": 67.50000000000004
     },
     {
       "sortId": 32.300000000000004,

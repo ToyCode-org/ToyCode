@@ -20,25 +20,18 @@ export const IssueKanbanDnd = () => {
     issueData?.filter((item) => item.status === "working"),
     issueData?.filter((item) => item.status === "done"),
   ];
-  console.log("originData", issue);
-  console.log("lastSortId", lastSortId);
-  console.log("for sorting", newIssueArr);
 
   const initDndStatus = {
     startId: 0,
     endId: 0,
     startSortId: 0,
-    endSortId: issueData[issueData?.length - 1]?.sortId,
-    // endSortId: lastSortId + 1,
+    endSortId: issueData[issueData?.length - 1]?.sortId + 1,
     position: null,
     isDragOver: false,
     startStatus: "",
     endStatus: "",
   };
   const [dndStatus, setDndStatus] = useState(initDndStatus);
-
-  console.log("dnd스탯", dndStatus);
-
   const [dndFormData, setDndFormData] = useState({});
   useEffect(() => {
     setIssueData(issue);
