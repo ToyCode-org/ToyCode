@@ -77,7 +77,7 @@ export const deleteComments = createAsyncThunk(
 // data, isLoading, error로 상태관리
 const initialState = {
   comment: [],
-  isLoading: true,
+  isLoading: false,
   error: null,
 };
 
@@ -90,11 +90,11 @@ export const commentSlice = createSlice({
       state.comment = action.payload;
     });
     builder.addCase(getComments.pending, (state, action) => {
-      state.comment = state.comment.concat(action.payload);
+      state.isLoading = true;
     });
     builder.addCase(getComments.fulfilled, (state, action) => {
       state.comment = state.comment.concat(action.payload);
-      //   state.isLoading = false
+      state.isLoading = false;
     });
     builder.addCase(getCommentsOne.fulfilled, (state, action) => {
       state.comment = action.payload;
