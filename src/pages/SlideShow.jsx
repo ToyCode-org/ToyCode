@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const SlideShow = () => {
   let imageArray = [
@@ -18,41 +18,22 @@ export const SlideShow = () => {
   ];
 
   // 가짜 이미지를 포함한 전체 배열 길이
-  // 좌우로 이동할 길이
-  let idxIndex = imageArray?.length + 2;
-  let idxRight = 600;
+  // 좌우로 이동할 길이 : SlideContainer/SlideBox의 width와 동일해야함
+  let imageArrLength = imageArray?.length;
+  let indexRight = 600;
 
   // 현재 이미지 number
-  // 현재 idx(x축 위치)
-  // transition 시간 초기화
-  const [imageNum, setImageNum] = useState(1);
-  const [idxPx, setIdxPx] = useState(0);
-  const [idxInit, setIdxInit] = useState(0.1);
-
-  // 상세페이지 호출시 첫 번째 사진 위치로 이동
-  useEffect(() => {
-    setTimeout(() => {
-      setIdxPx(idxPx - idxRight);
-    }, 200);
-  }, []);
+  // 현재 index(x축 위치)
+  const [imageNum, setImageNum] = useState(0);
+  const [indexPx, setIndexPx] = useState(0);
 
   // 첫 번째 사진이 아니면 이전 사진으로 이동
   const goPrev = (e) => {
     e.stopPropagation();
     if (imageNum !== 0) {
       setImageNum(imageNum - 1);
-      setIdxPx(idxPx + idxRight);
-    } else {
-      setImageNum(imageArray.length - 1);
-      setIdxPx(idxPx + idxRight);
-      // 가짜 이미지로 이동하는 척 하면서
-      // transition 시간을 0으로 바꾸고 기존 이미지 배열로 이동
-      setTimeout(() => {
-        setIdxInit(0);
-        setIdxPx(imageArray.length * -idxRight);
-      }, 300);
+      setIndexPx(indexPx + indexRight);
     }
-    setIdxInit(0.1);
   };
 
   // 마지막 사진이 아니면 처음 사진으로 이동
@@ -60,18 +41,8 @@ export const SlideShow = () => {
     e.stopPropagation();
     if (imageNum !== imageArray.length - 1) {
       setImageNum(imageNum + 1);
-      setIdxPx(idxPx - idxRight);
-    } else {
-      setImageNum(0);
-      setIdxPx(idxPx - idxRight);
-      // 가짜 이미지로 이동하는 척 하면서
-      // transition 시간을 0으로 바꾸고 기존 이미지 배열로 이동
-      setTimeout(() => {
-        setIdxInit(0);
-        setIdxPx(idxRight * -1);
-      }, 300);
+      setIndexPx(indexPx - indexRight);
     }
-    setIdxInit(0.1);
   };
 
   return (
@@ -79,16 +50,13 @@ export const SlideShow = () => {
       <SlideContainer onClick={(e) => e.stopPropagation()}>
         <SlideBox
           style={{
-            width: `${idxIndex * idxRight}px`,
-            transform: `translateX(${idxPx}px)`,
-            transition: `${idxInit}s`,
+            width: `${imageArrLength * indexRight}px`,
+            transform: `translateX(${indexPx}px)`,
           }}
         >
-          <img src={imageArray[imageArray.length - 1]} alt="cloneEnd" />
           {imageArray?.map((item, index) => (
             <img key={index} src={item} alt="slideImg" />
           ))}
-          <img src={imageArray[0]} alt="cloneStart" />
         </SlideBox>
       </SlideContainer>
       <StyledPrevNext
@@ -138,6 +106,7 @@ const SlideContainer = styled.div`
 
 const SlideBox = styled.div`
   display: flex;
+  transition: 0.2s;
   & img {
     width: 600px;
     height: 200px;
