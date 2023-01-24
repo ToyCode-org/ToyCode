@@ -25,6 +25,18 @@ export const getComments = createAsyncThunk(
   }
 );
 
+export const getCommentsPaging = createAsyncThunk(
+  "GET_PAGE_COMMENTS_Paging",
+  async (payload, thunkAPI) => {
+    try {
+      const { data } = await commentAPI.getComments(payload);
+      return thunkAPI.fulfillWithValue(data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 export const getCommentsOne = createAsyncThunk(
   "GET_COMMENT_ONE",
   async (payload, thunkAPI) => {
@@ -79,6 +91,7 @@ const initialState = {
   comment: [],
   isLoading: false,
   error: null,
+  maxLength: 0,
 };
 
 export const commentSlice = createSlice({
@@ -87,7 +100,8 @@ export const commentSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getCommentsAll.fulfilled, (state, action) => {
-      state.comment = action.payload;
+      // state.comment = action.payload;
+      state.maxLength = action.payload.length;
     });
     builder.addCase(getComments.pending, (state, action) => {
       state.isLoading = true;
@@ -99,8 +113,12 @@ export const commentSlice = createSlice({
     builder.addCase(getCommentsOne.fulfilled, (state, action) => {
       state.comment = action.payload;
     });
+    builder.addCase(getCommentsPaging.fulfilled, (state, action) => {
+      state.comment = action.payload;
+    });
     builder.addCase(addComments.fulfilled, (state, action) => {
       state.comment.push(action.payload);
+      state.maxLength += 1;
     });
     builder.addCase(updateComments.fulfilled, (state, action) => {
       const newState = state.comment.map((item) =>
@@ -117,6 +135,7 @@ export const commentSlice = createSlice({
         (item) => item.id !== action.payload
       );
       state.comment = newState;
+      state.maxLength -= 1;
     });
   },
 });

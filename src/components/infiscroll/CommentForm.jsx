@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addComments } from "../../redux/slice/commentSlice";
@@ -27,28 +28,35 @@ export const CommentForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <input
-        type="text"
-        name="title"
-        value={formData.title}
-        placeholder={"제목"}
-        onChange={(e) => {
-          onChangeHandler(e);
-        }}
-      />
-      <br />
-      <input
-        type="text"
-        name="content"
-        value={formData.content}
-        placeholder={"내용"}
-        onChange={(e) => {
-          onChangeHandler(e);
-        }}
-      />
-      <br />
-      <button>이슈추가</button>
-    </form>
+    <Container>
+      <form onSubmit={onSubmitHandler}>
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          placeholder={"제목"}
+          onChange={(e) => {
+            onChangeHandler(e);
+          }}
+        />
+        <br />
+        <input
+          type="text"
+          name="content"
+          value={formData.content}
+          placeholder={"내용"}
+          onChange={(e) => {
+            onChangeHandler(e);
+          }}
+        />
+        <br />
+        <button>이슈추가</button>
+      </form>
+    </Container>
   );
 };
+
+const Container = styled.form`
+  display: flex;
+  justify-content: center;
+`;
