@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { SideMenu } from "../../pages/SideMenu";
 
 export const HeaderNav = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export const HeaderNav = () => {
         <button onClick={() => navigate("/infiscroll")}>무한스크롤</button>
         <button onClick={() => navigate("/slideshow")}>슬라이드</button>
         <button onClick={() => navigate("/infislideshow")}>무한슬라이드</button>
+        <SideMenu />
       </ButtonsWrap>
     </Container>
   );

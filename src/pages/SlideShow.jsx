@@ -20,14 +20,14 @@ export const SlideShow = () => {
   // 가짜 이미지를 포함한 전체 배열 길이
   // 좌우로 이동할 길이
   let idxIndex = imageArray?.length + 2;
-  let idxRight = 620;
+  let idxRight = 600;
 
   // 현재 이미지 number
   // 현재 idx(x축 위치)
   // transition 시간 초기화
   const [imageNum, setImageNum] = useState(1);
   const [idxPx, setIdxPx] = useState(0);
-  const [idxInit, setIdxInit] = useState(0.25);
+  const [idxInit, setIdxInit] = useState(0.1);
 
   // 상세페이지 호출시 첫 번째 사진 위치로 이동
   useEffect(() => {
@@ -35,12 +35,6 @@ export const SlideShow = () => {
       setIdxPx(idxPx - idxRight);
     }, 200);
   }, []);
-
-  // 클릭한 subImage 위치로 이동
-  const imageChange = (index) => {
-    setImageNum(index);
-    setIdxPx(-idxRight * (index + 1));
-  };
 
   // 첫 번째 사진이 아니면 이전 사진으로 이동
   const goPrev = (e) => {
@@ -58,7 +52,7 @@ export const SlideShow = () => {
         setIdxPx(imageArray.length * -idxRight);
       }, 300);
     }
-    setIdxInit(0.25);
+    setIdxInit(0.1);
   };
 
   // 마지막 사진이 아니면 처음 사진으로 이동
@@ -77,15 +71,15 @@ export const SlideShow = () => {
         setIdxPx(idxRight * -1);
       }, 300);
     }
-    setIdxInit(0.25);
+    setIdxInit(0.1);
   };
 
   return (
     <Container>
-      <StyledModalContainer onClick={(e) => e.stopPropagation()}>
-        <StyledSlideBox
+      <SlideContainer onClick={(e) => e.stopPropagation()}>
+        <SlideBox
           style={{
-            width: `${idxIndex * 620}px`,
+            width: `${idxIndex * idxRight}px`,
             transform: `translateX(${idxPx}px)`,
             transition: `${idxInit}s`,
           }}
@@ -95,8 +89,8 @@ export const SlideShow = () => {
             <img key={index} src={item} alt="slideImg" />
           ))}
           <img src={imageArray[0]} alt="cloneStart" />
-        </StyledSlideBox>
-      </StyledModalContainer>
+        </SlideBox>
+      </SlideContainer>
       <StyledPrevNext
         className="prev"
         onClick={(e) => {
@@ -113,35 +107,6 @@ export const SlideShow = () => {
       >
         {">"}
       </StyledPrevNext>
-      <StyledSubContainer onClick={(e) => e.stopPropagation()}>
-        <ul>
-          {imageArray?.map((item, index) => {
-            if (index === imageNum) {
-              return (
-                <li
-                  key={index}
-                  onClick={() => {
-                    imageChange(index);
-                  }}
-                >
-                  <img className="checkedImg" src={item} alt="현재 이미지" />
-                </li>
-              );
-            } else {
-              return (
-                <li
-                  key={index}
-                  onClick={() => {
-                    imageChange(index);
-                  }}
-                >
-                  <img src={item} alt="현재 이미지" />
-                </li>
-              );
-            }
-          })}
-        </ul>
-      </StyledSubContainer>
     </Container>
   );
 };
@@ -157,11 +122,13 @@ const Container = styled.div`
   }
 `;
 
-const StyledModalContainer = styled.div`
+const SlideContainer = styled.div`
   width: 600px;
-  height: 600px;
+  height: 200px;
   border-radius: 10px;
   overflow: hidden;
+
+  border: 1px solid black;
 
   position: fixed;
   left: 50%;
@@ -169,27 +136,27 @@ const StyledModalContainer = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const StyledSlideBox = styled.div`
+const SlideBox = styled.div`
   display: flex;
-
   & img {
     width: 600px;
-    height: 600px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
+    height: 200px;
+    border-radius: 5px;
     text-align: center;
   }
 `;
 
 const StyledPrevNext = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 4vw;
   height: 4vh;
   border-radius: 50%;
-  border: 1px solid rgb(150, 212, 253);
+  border: 1px solid lightgray;
   color: white;
   font-size: 1.8rem;
-  background-color: rgb(150, 212, 253);
+  background-color: lightgray;
 
   position: fixed;
   left: 25%;
@@ -201,12 +168,12 @@ const StyledPrevNext = styled.button`
 
   &.next {
     position: fixed;
-    left: 76%;
+    left: 75%;
     top: 40%;
     transform: translate(-50%, -50%);
   }
   &:hover {
-    background-color: rgb(71, 181, 255);
+    background-color: gray;
   }
   &:active {
     animation: prevNext 0.6s;
@@ -220,29 +187,5 @@ const StyledPrevNext = styled.button`
         height: 4vh;
       }
     }
-  }
-`;
-
-const StyledSubContainer = styled.div`
-  position: fixed;
-  left: 50%;
-  top: 80%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-
-  & ul {
-    display: grid;
-    align-items: center;
-    grid-gap: 1vw;
-    grid-template-columns: 7vw 7vw 7vw 7vw 7vw;
-  }
-  & .checkedImg {
-    border: 3px solid rgb(71, 181, 255);
-  }
-  & img {
-    width: 7vw;
-    height: 7vh;
-    margin-right: 1vw;
-    border-radius: 10px;
   }
 `;
