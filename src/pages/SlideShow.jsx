@@ -9,7 +9,7 @@ export const SlideShow = () => {
     require("../image/safePet.png"),
   ];
 
-  // 가짜 이미지를 포함한 전체 배열 길이
+  // 전체 배열 길이
   // 좌우로 이동할 길이 : SlideContainer/SlideBox의 width와 동일해야함
   let imageArrLength = imageArray?.length;
   let indexRight = 600;
