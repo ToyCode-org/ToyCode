@@ -6,14 +6,6 @@ export const SlideShow = () => {
     require("../image/cookiezip.png"),
     require("../image/jjapTube0.png"),
     require("../image/jjapTube1.png"),
-    require("../image/jjapTube2.png"),
-    require("../image/jjapTube3.png"),
-    require("../image/jjapTube4.png"),
-    require("../image/jjapTube5.png"),
-    require("../image/jjapTube6.png"),
-    require("../image/jjapTube7.png"),
-    require("../image/jjapTube8.png"),
-    require("../image/jjapTube9.png"),
     require("../image/safePet.png"),
   ];
 
@@ -59,22 +51,22 @@ export const SlideShow = () => {
           ))}
         </SlideBox>
       </SlideContainer>
-      <StyledPrevNext
+      <PrevNextBtn
         className="prev"
         onClick={(e) => {
           goPrev(e);
         }}
       >
         {"<"}
-      </StyledPrevNext>
-      <StyledPrevNext
+      </PrevNextBtn>
+      <PrevNextBtn
         className="next"
         onClick={(e) => {
           goNext(e);
         }}
       >
         {">"}
-      </StyledPrevNext>
+      </PrevNextBtn>
     </Container>
   );
 };
@@ -95,9 +87,7 @@ const SlideContainer = styled.div`
   height: 200px;
   border-radius: 10px;
   overflow: hidden;
-
   border: 1px solid black;
-
   position: fixed;
   left: 50%;
   top: 40%;
@@ -115,7 +105,7 @@ const SlideBox = styled.div`
   }
 `;
 
-const StyledPrevNext = styled.button`
+const PrevNextBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,7 +116,6 @@ const StyledPrevNext = styled.button`
   color: white;
   font-size: 1.8rem;
   background-color: lightgray;
-
   position: fixed;
   left: 25%;
   top: 40%;
