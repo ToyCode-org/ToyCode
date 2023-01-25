@@ -22,24 +22,24 @@
       "id": 4
     },
     {
-      "sortId": 134,
+      "sortId": 151,
       "title": "ㅎㅇㅇ",
       "content": "ㅇㅎㅎㅇㅎㅇ",
       "status": "todo",
       "id": 6
     },
     {
-      "sortId": 141,
+      "sortId": 146,
       "title": "ㅎㅇㅎㅇㅇ",
       "content": "ㅎㅇㅇㅎ",
       "status": "working",
       "id": 7
     },
     {
-      "sortId": 139,
+      "sortId": 147,
       "title": "ㅎㅇㅎㅇ",
       "content": "ㅎㅇㅇㅎ",
-      "status": "done",
+      "status": "todo",
       "id": 8
     },
     {
