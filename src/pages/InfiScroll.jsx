@@ -14,5 +14,5 @@ export const InfiScroll = () => {
 const Container = styled.div`
   /* margin: 0 auto;
   width: 80vw; */
-  background-color: white;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;

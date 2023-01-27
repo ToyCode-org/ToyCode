@@ -47,7 +47,7 @@ export const HeaderNav = ({ isDark, setisDark }) => {
         })}
       </ButtonsWrap>
       <Darkmode setisDark={setisDark} />
-      <SideMenu />
+      <SideMenu isDark={isDark} />
     </Container>
   );
 };
@@ -68,10 +68,10 @@ const Container = styled.div`
 const ButtonsWrap = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   width: 95vw;
   height: 50px;
-  border-bottom: 1px solid black;
+  border-bottom: ${(props) => props.theme.border};
   transition: 0.3s;
   & button {
     width: 15vw;

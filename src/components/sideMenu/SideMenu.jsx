@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { SideMenuBox } from "./SideMenuBox";
 
-export const SideMenu = () => {
+export const SideMenu = ({ isDark }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   console.log(menuOpen);
 
@@ -13,7 +13,10 @@ export const SideMenu = () => {
   return (
     <>
       {!menuOpen ? (
-        <MenuButton onClick={() => setMenuOpen(true)}>사이드메뉴</MenuButton>
+        <MenuButton
+          src={require(`../../image/${isDark ? "whitemenu" : "blackmenu"}.png`)}
+          onClick={() => setMenuOpen(true)}
+        />
       ) : null}
       <Background
         onClick={closeMenuHandler}
@@ -64,10 +67,18 @@ const MenuBox = styled.div`
   background-color: white;
 `;
 
-const MenuButton = styled.button`
+const MenuButton = styled.img`
   position: fixed;
-  top: 3vw;
-  right: 3vw;
+  top: 2vw;
+  right: 2vw;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: gray;
+  }
 `;
 
 const CloseMenuButton = styled.button`

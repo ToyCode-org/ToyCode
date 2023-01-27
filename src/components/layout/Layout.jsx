@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export const Layout = ({ children }) => {
   const [isDark, setisDark] = useState(true);
-  console.log("darkmode", isDark);
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
