@@ -28,30 +28,28 @@ export const CommentForm = () => {
   };
 
   return (
-    <Container>
-      <form onSubmit={onSubmitHandler}>
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          placeholder={"제목"}
-          onChange={(e) => {
-            onChangeHandler(e);
-          }}
-        />
-        <br />
-        <input
-          type="text"
-          name="content"
-          value={formData.content}
-          placeholder={"내용"}
-          onChange={(e) => {
-            onChangeHandler(e);
-          }}
-        />
-        <br />
-        <button>이슈추가</button>
-      </form>
+    <Container onSubmit={onSubmitHandler}>
+      <input
+        type="text"
+        name="title"
+        value={formData.title}
+        placeholder={"제목"}
+        onChange={(e) => {
+          onChangeHandler(e);
+        }}
+      />
+      <br />
+      <input
+        type="text"
+        name="content"
+        value={formData.content}
+        placeholder={"내용"}
+        onChange={(e) => {
+          onChangeHandler(e);
+        }}
+      />
+      <br />
+      <SubmitButton>Add Commenet</SubmitButton>
     </Container>
   );
 };
@@ -59,4 +57,13 @@ export const CommentForm = () => {
 const Container = styled.form`
   display: flex;
   justify-content: center;
+`;
+
+const SubmitButton = styled.button`
+  height: 40px;
+  border: ${(props) => props.theme.border};
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  cursor: pointer;
 `;

@@ -11,7 +11,7 @@ export const IssueKanbanDnd = () => {
 
   useEffect(() => {
     dispatch(getIssues());
-  }, []);
+  }, [dispatch]);
 
   const [issueData, setIssueData] = useState([]);
 
@@ -40,7 +40,6 @@ export const IssueKanbanDnd = () => {
 
   return (
     <Container>
-      <p>이슈 칸반 DND 입니다.</p>
       <IssueForm lastSortId={lastSortId} />
       <IssueBoxWrap>
         {newIssueArr?.map((item, index) => {
@@ -63,10 +62,10 @@ export const IssueKanbanDnd = () => {
 };
 
 const Container = styled.div`
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  width: 95vw;
+
   & button {
     width: max-content;
   }
@@ -75,5 +74,6 @@ const Container = styled.div`
 const IssueBoxWrap = styled.div`
   margin-top: 30px;
   display: flex;
-  width: 30vw;
+  justify-content: center;
+  /* width: 30vw; */
 `;

@@ -31,24 +31,23 @@ export const Paging = ({
   }, [activePage]);
 
   // 한 묶음에 보여줄 페이지 넘버
-  const listNumIndex =
-    listNum === 1
-      ? Array.from(
-          {
-            length: maxItems,
-          },
-          (item, index) => {
-            return index;
-          }
-        )
-      : Array.from(
-          {
-            length: maxItems,
-          },
-          (item, index) => {
-            return index + maxItems * (listNum - 1);
-          }
-        );
+  const firPagingArr = Array.from(
+    {
+      length: maxItems,
+    },
+    (item, index) => {
+      return index;
+    }
+  );
+  const otherPagingArr = Array.from(
+    {
+      length: maxItems,
+    },
+    (item, index) => {
+      return index + maxItems * (listNum - 1);
+    }
+  );
+  const listNumIndex = listNum === 1 ? firPagingArr : otherPagingArr;
 
   return (
     <PagingUl>
@@ -67,32 +66,18 @@ export const Paging = ({
           listNumIndex[0] <= index &&
           index <= listNumIndex[listNumIndex.length - 1]
         ) {
-          if (index + 1 === activePage) {
-            return (
-              <li
-                key={item}
-                id={index + 1}
-                className="activePage"
-                onClick={() => {
-                  handlePageChange(index + 1);
-                }}
-              >
-                {index + 1}
-              </li>
-            );
-          } else {
-            return (
-              <li
-                key={item}
-                id={index + 1}
-                onClick={() => {
-                  handlePageChange(index + 1);
-                }}
-              >
-                {index + 1}
-              </li>
-            );
-          }
+          return (
+            <li
+              key={item}
+              id={index + 1}
+              className={index + 1 === activePage ? "activePage" : "page"}
+              onClick={() => {
+                handlePageChange(index + 1);
+              }}
+            >
+              {index + 1}
+            </li>
+          );
         }
       })}
       <li
@@ -114,6 +99,7 @@ export const Paging = ({
 };
 
 const PagingUl = styled.ul`
+  padding: 0;
   margin: auto;
   margin-top: 50px;
   width: 300px;

@@ -31,7 +31,7 @@ export const KanbanBox = ({
         )
       }
     >
-      <p>{thisKanbanStatus}</p>
+      <p>{thisKanbanStatus.toUpperCase()}</p>
       <CardBox>
         {boxData?.map((item, index) => {
           return (
@@ -56,11 +56,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30vw;
-  width: 30vw;
+  min-width: 25vw;
+  width: 25vw;
   min-height: 600px;
   height: 600px;
-  border: 1px solid black;
+  border: ${(props) => props.theme.border};
+  border-radius: 10px;
+  transition: 0.3s;
 `;
 
 const CardBox = styled.div`
@@ -69,8 +71,6 @@ const CardBox = styled.div`
   justify-content: flex-start;
   min-height: 50vh;
   overflow-y: auto;
-
-  background: white;
   & .dragging {
     opacity: 0.3;
   }

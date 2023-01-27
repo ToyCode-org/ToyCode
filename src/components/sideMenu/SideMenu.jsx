@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { SideMenuBox } from "../components/sideMenu/SideMenuBox";
+import { SideMenuBox } from "./SideMenuBox";
 
 export const SideMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ export const SideMenu = () => {
   return (
     <>
       {!menuOpen ? (
-        <button onClick={() => setMenuOpen(true)}>사이드메뉴</button>
+        <MenuButton onClick={() => setMenuOpen(true)}>사이드메뉴</MenuButton>
       ) : null}
       <Background
         onClick={closeMenuHandler}
@@ -28,8 +28,8 @@ export const SideMenu = () => {
         }
       >
         <MenuBox>
+          <CloseMenuButton onClick={closeMenuHandler}>닫기버튼</CloseMenuButton>
           <SideMenuBox />
-          <button onClick={closeMenuHandler}>닫기버튼</button>
         </MenuBox>
       </Container>
     </>
@@ -57,7 +57,21 @@ const Container = styled.div`
 `;
 
 const MenuBox = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 30vw;
   height: 100vh;
   background-color: white;
+`;
+
+const MenuButton = styled.button`
+  position: fixed;
+  top: 3vw;
+  right: 3vw;
+`;
+
+const CloseMenuButton = styled.button`
+  margin: 20px 20px 0 20px;
+  width: 50px;
+  height: 50px;
 `;

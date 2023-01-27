@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { IssueKanbanDnd } from "../pages/IssueKanbanDnd";
-import { RenderTest } from "../pages/RenderTest";
 import { Pagenation } from "../pages/Pagenation";
 import { InfiScroll } from "../pages/InfiScroll";
 import { SlideShow } from "../pages/SlideShow";
@@ -12,7 +11,6 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/dndkanban" element={<IssueKanbanDnd />} />
-      <Route path="/rendertest" element={<RenderTest />} />
       <Route path="/pagenation" element={<Pagenation />} />
       <Route path="/infiscroll" element={<InfiScroll />} />
       <Route path="/slideshow" element={<SlideShow />} />

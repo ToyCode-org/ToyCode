@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addIssues } from "../../redux/slice/issueSlice";
@@ -31,7 +32,7 @@ export const IssueForm = ({ lastSortId }) => {
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
+    <Container onSubmit={onSubmitHandler}>
       <input
         type="text"
         name="title"
@@ -52,7 +53,21 @@ export const IssueForm = ({ lastSortId }) => {
         }}
       />
       <br />
-      <button>이슈추가</button>
-    </form>
+      <SubmitButton>Add Issue</SubmitButton>
+    </Container>
   );
 };
+
+const Container = styled.form`
+  display: flex;
+  justify-content: center;
+`;
+
+const SubmitButton = styled.button`
+  height: 40px;
+  border: ${(props) => props.theme.border};
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+`;

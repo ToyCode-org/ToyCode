@@ -4,10 +4,15 @@ import { InfiListBox } from "../components/infiscroll/InfiListBox";
 
 export const InfiScroll = () => {
   return (
-    <div>
-      <p>무한스크롤 페이지입니다.</p>
+    <Container>
       <CommentForm />
       <InfiListBox />
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  /* margin: 0 auto;
+  width: 80vw; */
+  background-color: white;
+`;

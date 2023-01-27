@@ -33,7 +33,6 @@ export const PageData = () => {
 
   return (
     <Container>
-      <p>페이지데이터</p>
       <CardWrap>
         {comment?.map((item, index) => {
           return (
@@ -60,16 +59,23 @@ export const PageData = () => {
 
 const Container = styled.div`
   margin: 0 auto;
-  width: 90vw;
+  margin-top: 20px;
 `;
 
 const CardWrap = styled.div`
   display: grid;
-  grid-template-columns: 25vw 25vw 25vw 25vw;
-  width: 95vw;
+  justify-items: center;
+  justify-content: center;
+  grid-template-columns: 15vw 15vw 15vw 15vw;
+  grid-gap: 0 30px;
 `;
 
 const Card = styled.div`
+  width: 15vw;
+  height: 100px;
   margin-bottom: 20px;
   padding: 5px;
+  border-radius: 5px;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  transition: 0.3s;
 `;

@@ -1,33 +1,86 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { SideMenu } from "../../pages/SideMenu";
+import { SideMenu } from "../sideMenu/SideMenu";
+import { useLocation } from "react-router-dom";
+import { Darkmode } from "./Darkmode";
 
-export const HeaderNav = () => {
+export const HeaderNav = ({ isDark, setisDark }) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const locationHandler = (e) => {
+    let goPathname = e.target.name;
+    navigate(goPathname);
+  };
+
+  const buttonArr = [
+    ["Home", "/"],
+    ["Kanban Board", "/dndkanban"],
+    ["Pagenation", "/pagenation"],
+    ["Infinity scroll", "/infiscroll"],
+    ["Slide Show", "/slideshow"],
+    ["Carousel Slide Show", "/infislideshow"],
+  ];
 
   return (
     <Container>
-      <p>참조할 기능을 선택해주세요</p>
+      <h1>Hello Feature</h1>
       <ButtonsWrap>
-        <button onClick={() => navigate("/")}>홈</button>
-        <button onClick={() => navigate("/rendertest")}>렌더링 테스트</button>
-        <button onClick={() => navigate("/dndkanban")}>칸반보드</button>
-        <button onClick={() => navigate("/pagenation")}>페이지네이션</button>
-        <button onClick={() => navigate("/infiscroll")}>무한스크롤</button>
-        <button onClick={() => navigate("/slideshow")}>슬라이드</button>
-        <button onClick={() => navigate("/infislideshow")}>무한슬라이드</button>
-        <SideMenu />
+        {buttonArr.map((item, index) => {
+          return (
+            <button
+              key={index}
+              name={item[1]}
+              onClick={locationHandler}
+              style={
+                item[1] === pathname
+                  ? {
+                      color: isDark ? "black" : "white",
+                      backgroundColor: isDark ? "white" : "black",
+                    }
+                  : null
+              }
+            >
+              {item[0]}
+            </button>
+          );
+        })}
       </ButtonsWrap>
+      <Darkmode setisDark={setisDark} />
+      <SideMenu />
     </Container>
   );
 };
 
 const Container = styled.div`
+  position: fixed;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  color: ${(props) => props.theme.mainFontColor};
+  background-color: ${(props) => props.theme.backgroundColor};
+  transition: 0.3s;
 `;
 
 const ButtonsWrap = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 95vw;
+  height: 50px;
+  border-bottom: 1px solid black;
+  transition: 0.3s;
+  & button {
+    width: 15vw;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    color: ${(props) => props.theme.mainFontColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+    transition: 0.3s;
+    cursor: pointer;
+  }
 `;

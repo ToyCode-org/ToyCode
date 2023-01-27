@@ -49,9 +49,10 @@ export const Card = ({
 const Container = styled.div`
   padding: 0 10px 0 10px;
   display: flex;
-  width: 25vw;
+  width: 23vw;
   min-height: 77px;
   border: 1px solid gray;
+  border-radius: 5px;
 `;
 
 const ContentWrap = styled.div`

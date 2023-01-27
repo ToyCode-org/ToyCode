@@ -36,11 +36,11 @@ export const InfiListBox = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       {isLoading ? <LoadingSpinner /> : null}
       {comment?.map((item, index) => {
         return (
-          <Container key={index}>
+          <ItemCard key={index}>
             <div>
               <span>ID: {item?.id}</span>
             </div>
@@ -48,29 +48,35 @@ export const InfiListBox = () => {
               <div>{item?.title}</div>
               <div>{item?.content}</div>
             </div>
-          </Container>
+          </ItemCard>
         );
       })}
       <IoTarget
         id="observeTarget"
         ref={observer}
         style={isLoading ? { display: "none" } : { display: "block" }}
-      >
-        타겟
-      </IoTarget>
-    </>
+      />
+    </Container>
   );
 };
 
 const Container = styled.div`
-  margin: 0 auto;
   margin-top: 15px;
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${(props) => props.theme.backgroundColor};
+  transition: 0.3s;
+`;
+
+const ItemCard = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   width: 50vw;
   height: 100px;
-  box-shadow: 1px 1px 4px 1px #444444;
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;
 
 const IoTarget = styled.div``;
