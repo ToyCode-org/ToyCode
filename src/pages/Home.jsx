@@ -22,7 +22,7 @@ export const Home = () => {
         <br />
         <h2>2. 구현 코드</h2>
         <a
-          href="https://github.com/LEE-YO-HAN/my-ref-feat/tree/main/src"
+          href="https://github.com/ToyCode-org/ToyCode"
           target="_blank"
           rel="noreferrer"
         >
@@ -87,7 +87,7 @@ export const Home = () => {
         <br />
         <h2>4. 현재 이슈</h2>
         <a
-          href="https://github.com/LEE-YO-HAN/my-ref-feat/issues"
+          href="https://github.com/ToyCode-org/ToyCode/issues"
           target="_blank"
           rel="noreferrer"
         >
