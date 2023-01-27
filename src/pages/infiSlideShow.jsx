@@ -23,8 +23,10 @@ export const InfiSlideShow = () => {
 
   // 상세페이지 호출시 첫 번째 사진 위치로 이동
   useEffect(() => {
+    setIndexInit(0);
+    setIndexPx(indexPx - indexRight);
     setTimeout(() => {
-      setIndexPx(indexPx - indexRight);
+      setIndexInit(0.1);
     }, 300);
   }, []);
 
@@ -141,6 +143,7 @@ const SlideContainer = styled.div`
 
 const SlideBox = styled.div`
   display: flex;
+  transition: 0.2s;
   & img {
     width: 600px;
     height: 200px;
