@@ -10,7 +10,7 @@ export const SideMenu = ({ isDark }) => {
   };
 
   return (
-    <>
+    <ZIndex>
       {!menuOpen ? (
         <MenuButton
           src={require(`../../image/${isDark ? "whitemenu" : "blackmenu"}.png`)}
@@ -39,9 +39,13 @@ export const SideMenu = ({ isDark }) => {
           <SideMenuBox />
         </MenuBox>
       </Container>
-    </>
+    </ZIndex>
   );
 };
+
+const ZIndex = styled.div`
+  z-index: 999;
+`;
 
 const Background = styled.div`
   position: fixed;
@@ -70,7 +74,6 @@ const Container = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   transition: 0.3s;
-  z-index: 999;
   border-left: ${(props) => props.theme.border};
 `;
 

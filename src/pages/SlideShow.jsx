@@ -74,8 +74,16 @@ export const SlideShow = () => {
 const Container = styled.div`
   margin: 0 auto;
   width: 95vw;
+  animation: slideFadein 0.3s;
 
-  animation: fadein 0.3s;
+  @keyframes slideFadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   & ul,
   li {

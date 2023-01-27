@@ -42,6 +42,8 @@ export const InfiSlideShow = () => {
       setTimeout(() => {
         setIndexInit(0);
         setIndexPx(indexRight * (-imageArrLength + 2));
+      }, 200);
+      setTimeout(() => {
         setIndexInit(0.1);
       }, 300);
     }
@@ -61,8 +63,10 @@ export const InfiSlideShow = () => {
       setTimeout(() => {
         setIndexInit(0);
         setIndexPx(indexRight * -1);
-        setIndexInit(0.1);
       }, 200);
+      setTimeout(() => {
+        setIndexInit(0.1);
+      }, 300);
     }
   };
 
@@ -106,9 +110,16 @@ export const InfiSlideShow = () => {
 const Container = styled.div`
   margin: 0 auto;
   width: 95vw;
+  animation: slideFadein 0.3s;
 
-  animation: fadein 0.3s;
-
+  @keyframes slideFadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   & ul,
   li {
     list-style: none;
@@ -121,9 +132,7 @@ const SlideContainer = styled.div`
   height: 200px;
   border-radius: 10px;
   overflow: hidden;
-
   border: 1px solid black;
-
   position: fixed;
   left: 50%;
   top: 40%;
