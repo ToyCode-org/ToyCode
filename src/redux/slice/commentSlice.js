@@ -117,7 +117,8 @@ export const commentSlice = createSlice({
       state.comment = action.payload;
     });
     builder.addCase(addComments.fulfilled, (state, action) => {
-      state.comment.push(action.payload);
+      state.comment.unshift(action.payload);
+      state.comment.pop();
       state.maxLength += 1;
     });
     builder.addCase(updateComments.fulfilled, (state, action) => {
