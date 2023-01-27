@@ -19,6 +19,7 @@ export const Home = () => {
           <span>- axios 1.2.2</span>
           <span>- json-server 0.17.1</span>
         </CustomDetails>
+        <br />
         <h2>2. 구현 코드</h2>
         <a
           href="https://github.com/LEE-YO-HAN/my-ref-feat/tree/main/src"
@@ -27,6 +28,8 @@ export const Home = () => {
         >
           코드 조회하기{" - (go to repository)"}
         </a>
+        <br />
+        <br />
         <h2>3. 기능</h2>
         <span>
           Kanban board <br /> - drag & drop event를 통해 비교할 카드에 drop시킨
@@ -46,7 +49,9 @@ export const Home = () => {
         <span>
           Infinity scroll <br /> - IntersectionObserver을 이용해 불러온 데이터의
           끝{"(view의 바닥 끝)"}이 화면에 보이는 경우, 새 데이터를 pagenation과
-          유사하게 불러옴.
+          유사하게 불러옴. <br />
+          data fetch 시 isLoading 여부에 따른 LoadingSpinner 적용했으나, 현재는
+          로딩 시간이 짧아 잘 노출되지 않음
         </span>
         <br />
         <br />
@@ -78,6 +83,16 @@ export const Home = () => {
           움직이는 메뉴 바를 만들기 위해서 transform: translate()를 이용해 화면
           밖에 있던 메뉴 창을 화면 안으로 자연스럽게 이동시키는 방식을 택했다.
         </span>
+        <br />
+        <br />
+        <h2>4. 현재 이슈</h2>
+        <a
+          href="https://github.com/LEE-YO-HAN/my-ref-feat/issues"
+          target="_blank"
+          rel="noreferrer"
+        >
+          이슈 조회하기{" - (go to repository)"}
+        </a>
       </ContentWrap>
     </Container>
   );
@@ -86,9 +101,11 @@ export const Home = () => {
 const Container = styled.div`
   margin: 0 auto;
   margin-top: 15px;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: ${(props) => props.theme.backgroundColor};
   transition: 0.3s;
 
   animation: Homefadein 1s;

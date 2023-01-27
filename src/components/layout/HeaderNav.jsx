@@ -25,7 +25,7 @@ export const HeaderNav = ({ isDark, setisDark }) => {
   return (
     <Container>
       <h1 onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
-        Hello Feature
+        Toy Features
       </h1>
       <ButtonsWrap>
         {buttonArr.map((item, index) => {

@@ -13,6 +13,7 @@ export const InfiScroll = () => {
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
+  transition: 0.3s;
 
   animation: fadein 0.3s;
   @keyframes fadein {
