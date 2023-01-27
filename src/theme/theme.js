@@ -19,6 +19,9 @@ export const lightTheme = {
   //input
 
   // pagenation buttons
+  pagingBackground: "#e6e6e6",
+  pagingHoverColor: "white",
+  pagingHoverBackground: "gray",
 };
 
 // background-color: ${(props) => props.theme.backgroundColor};
