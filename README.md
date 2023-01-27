@@ -4,6 +4,10 @@ my-ref-feat code
 
 for non library features
 
+# 데스크탑 환경 권장
+
+접속 링크 : https://toy-code.vercel.app/
+
 ## getting start
 
 ```bash
