@@ -68,6 +68,7 @@ const CardWrap = styled.div`
   justify-content: center;
   grid-template-columns: 15vw 15vw 15vw 15vw;
   grid-gap: 0 30px;
+  min-height: 650px;
 `;
 
 const Card = styled.div`

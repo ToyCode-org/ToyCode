@@ -9,6 +9,10 @@ export const darkTheme = {
   //input
 
   // pagenation buttons
+  pagingBackground: "black",
+  pagingHoverColor: "black",
+  pagingHoverBackground: "white",
+  pagingBorder: "1px solid white",
 };
 export const lightTheme = {
   // container
@@ -19,9 +23,10 @@ export const lightTheme = {
   //input
 
   // pagenation buttons
-  pagingBackground: "#e6e6e6",
+  pagingBackground: "#e3e3e3",
   pagingHoverColor: "white",
-  pagingHoverBackground: "gray",
+  pagingHoverBackground: "black",
+  pagingBorder: "none",
 };
 
 // background-color: ${(props) => props.theme.backgroundColor};

@@ -57,7 +57,7 @@ export const Paging = ({
             handlePageChange(activePage - 1);
           }
         }}
-        style={activePage === 1 ? { backgroundColor: "#e9e9e9" } : null}
+        style={activePage === 1 ? { backgroundColor: `gray` } : null}
       >
         {prevPageText}
       </li>
@@ -87,9 +87,7 @@ export const Paging = ({
           }
         }}
         style={
-          activePage === pagingArray.length
-            ? { backgroundColor: "#e9e9e9" }
-            : null
+          activePage === pagingArray.length ? { backgroundColor: `gray` } : null
         }
       >
         {nextPageText}
@@ -117,25 +115,26 @@ const PagingUl = styled.ul`
     height: 35px;
     text-align: center;
     font-size: 25px;
+    border: ${(props) => props.theme.pagingBorder};
     border-radius: 5px;
-    background-color: #e6e6e6;
+    background-color: ${(props) => props.theme.pagingBackground};
     transition: 0.6s;
     cursor: pointer;
     &:hover {
-      color: white;
-      background-color: gray;
+      color: ${(props) => props.theme.pagingHoverColor};
+      background-color: ${(props) => props.theme.pagingHoverBackground};
     }
   }
   & .activePage {
-    color: white;
-    background-color: gray;
+    color: ${(props) => props.theme.pagingHoverColor};
+    background-color: ${(props) => props.theme.pagingHoverBackground};
   }
 
   & li:first-child,
   li:last-child {
-    background-color: #e6e6e6;
+    background-color: ${(props) => props.theme.pagingBackground};
     &:hover {
-      background-color: gray;
+      background-color: ${(props) => props.theme.pagingHoverBackground};
     }
   }
 `;
