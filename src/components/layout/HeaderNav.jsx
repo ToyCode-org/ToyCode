@@ -24,7 +24,9 @@ export const HeaderNav = ({ isDark, setisDark }) => {
 
   return (
     <Container>
-      <h1>Hello Feature</h1>
+      <h1 onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+        Hello Feature
+      </h1>
       <ButtonsWrap>
         {buttonArr.map((item, index) => {
           return (
@@ -63,6 +65,19 @@ const Container = styled.div`
   color: ${(props) => props.theme.mainFontColor};
   background-color: ${(props) => props.theme.backgroundColor};
   transition: 0.3s;
+
+  animation: Headerfadein 1s;
+  @keyframes Headerfadein {
+    from {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const ButtonsWrap = styled.div`
@@ -82,5 +97,8 @@ const ButtonsWrap = styled.div`
     background-color: ${(props) => props.theme.backgroundColor};
     transition: 0.3s;
     cursor: pointer;
+    &:hover {
+      background-color: #a0a0a034;
+    }
   }
 `;

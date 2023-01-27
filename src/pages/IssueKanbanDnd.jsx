@@ -66,6 +66,16 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
+  animation: fadein 0.3s;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   & button {
     width: max-content;
   }

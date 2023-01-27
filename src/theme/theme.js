@@ -13,6 +13,8 @@ export const darkTheme = {
   pagingHoverColor: "black",
   pagingHoverBackground: "white",
   pagingBorder: "1px solid white",
+  //loading Spinner
+  loadingColor: "#ffffff #a1a1a1 #a1a1a1 #ffffff",
 };
 export const lightTheme = {
   // container
@@ -27,6 +29,8 @@ export const lightTheme = {
   pagingHoverColor: "white",
   pagingHoverBackground: "black",
   pagingBorder: "none",
+  //loading Spinner
+  loadingColor: "#3b3b3b #747474 #747474 #3b3b3b",
 };
 
 // background-color: ${(props) => props.theme.backgroundColor};

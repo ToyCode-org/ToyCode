@@ -107,6 +107,16 @@ const Container = styled.div`
   margin: 0 auto;
   width: 95vw;
 
+  animation: fadein 0.3s;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   & ul,
   li {
     list-style: none;

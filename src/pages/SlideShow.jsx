@@ -19,7 +19,7 @@ export const SlideShow = () => {
   const [imageNum, setImageNum] = useState(0);
   const [indexPx, setIndexPx] = useState(0);
 
-  // 첫 번째 사진이 아니면 이전 사진으로 이동
+  // 첫 번째 사진이 아니면 다음 사진으로 이동
   const goPrev = (e) => {
     e.stopPropagation();
     if (imageNum !== 0) {
@@ -28,7 +28,7 @@ export const SlideShow = () => {
     }
   };
 
-  // 마지막 사진이 아니면 처음 사진으로 이동
+  // 마지막 사진이 아니면 다음 사진으로 이동
   const goNext = (e) => {
     e.stopPropagation();
     if (imageNum !== imageArray.length - 1) {
@@ -74,6 +74,16 @@ export const SlideShow = () => {
 const Container = styled.div`
   margin: 0 auto;
   width: 95vw;
+
+  animation: fadein 0.3s;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   & ul,
   li {

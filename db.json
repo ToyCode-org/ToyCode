@@ -29,10 +29,10 @@
       "id": 6
     },
     {
-      "sortId": 159,
+      "sortId": 167,
       "title": "ㅎㅇㅎㅇㅇ",
       "content": "ㅎㅇㅇㅎ",
-      "status": "working",
+      "status": "done",
       "id": 7
     },
     {
@@ -50,11 +50,18 @@
       "id": 9
     },
     {
-      "sortId": 158,
+      "sortId": 170,
       "title": "ㅎㅇㅇㅎ",
       "content": "ㅇㅎㅇㅎ",
       "status": "working",
       "id": 11
+    },
+    {
+      "sortId": 168,
+      "title": "ㅎㅇㅎㅇ",
+      "content": "ㅎㅇㅇ33",
+      "status": "todo",
+      "id": 12
     }
   ],
   "comments": [

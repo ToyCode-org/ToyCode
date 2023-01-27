@@ -10,7 +10,9 @@ export const issueAPI = {
 
 export const commentAPI = {
   getCommentAll: () => base.get(`/comments`),
-  getComments: (page) => base.get(`/comments?_page=${page}&_limit=20`),
+  // getComments: (page) => base.get(`/comments?_page=${page}&_limit=20`),
+  getComments: (page) =>
+    base.get(`/comments?_sort=id&_order=desc&_page=${page}}&_limit=20`),
   getCommentDetail: (commentId) => base.get(`/comments/${commentId}`),
   addComments: (data) => base.post(`/comments`, data),
   updateComment: (updateData) =>

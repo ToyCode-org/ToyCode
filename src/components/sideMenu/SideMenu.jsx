@@ -45,9 +45,19 @@ const Background = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 0;
   cursor: auto;
+
+  animation: backgroundFadein 0.3s;
+  @keyframes backgroundFadein {
+    from {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    to {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
 `;
 
 const Container = styled.div`

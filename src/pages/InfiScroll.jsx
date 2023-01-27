@@ -12,7 +12,15 @@ export const InfiScroll = () => {
 };
 
 const Container = styled.div`
-  /* margin: 0 auto;
-  width: 80vw; */
   background-color: ${(props) => props.theme.backgroundColor};
+
+  animation: fadein 0.3s;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
