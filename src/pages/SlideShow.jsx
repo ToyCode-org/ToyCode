@@ -76,14 +76,6 @@ const Container = styled.div`
   width: 95vw;
 
   animation: fadein 0.3s;
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 
   & ul,
   li {

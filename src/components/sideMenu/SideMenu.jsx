@@ -30,7 +30,12 @@ export const SideMenu = ({ isDark }) => {
         }
       >
         <MenuBox>
-          <CloseMenuButton onClick={closeMenuHandler}>닫기버튼</CloseMenuButton>
+          <CloseMenuButton
+            src={require(`../../image/${
+              isDark ? "whiteclose" : "blackclose"
+            }.png`)}
+            onClick={closeMenuHandler}
+          />
           <SideMenuBox />
         </MenuBox>
       </Container>
@@ -66,6 +71,7 @@ const Container = styled.div`
   transform: translate(-50%, -50%);
   transition: 0.3s;
   z-index: 999;
+  border-left: ${(props) => props.theme.border};
 `;
 
 const MenuBox = styled.div`
@@ -73,7 +79,7 @@ const MenuBox = styled.div`
   flex-direction: column;
   width: 30vw;
   height: 100vh;
-  background-color: white;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 const MenuButton = styled.img`
@@ -90,8 +96,14 @@ const MenuButton = styled.img`
   }
 `;
 
-const CloseMenuButton = styled.button`
+const CloseMenuButton = styled.img`
   margin: 20px 20px 0 20px;
   width: 50px;
   height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: gray;
+  }
 `;

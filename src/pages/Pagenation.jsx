@@ -15,12 +15,4 @@ const Container = styled.div`
   margin: 0 auto;
 
   animation: fadein 0.3s;
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 `;
