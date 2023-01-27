@@ -37,7 +37,7 @@ export const InfiSlideShow = () => {
     } else {
       setImageNum(imageArrLength - 2);
       setIndexPx(indexPx + indexRight);
-      // 가짜 이미지로 이동하는 척 하면서
+      // 가짜 이미지로 이동하는 모션 적용
       // transition 시간을 0으로 바꾸고 기존 이미지 배열로 이동
       setTimeout(() => {
         setIndexInit(0);
@@ -56,7 +56,7 @@ export const InfiSlideShow = () => {
     } else {
       setImageNum(1);
       setIndexPx(indexPx - indexRight);
-      // 가짜 이미지로 이동하는 척 하면서
+      // 가짜 이미지로 이동하는 모션 적용
       // transition 시간을 0으로 바꾸고 기존 이미지 배열로 이동
       setTimeout(() => {
         setIndexInit(0);

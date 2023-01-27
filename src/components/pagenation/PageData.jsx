@@ -10,8 +10,6 @@ import {
 export const PageData = () => {
   const dispatch = useDispatch();
   const { comment, maxLength } = useSelector((state) => state.commentSlice);
-  console.log(comment);
-  console.log(maxLength);
 
   const [activePage, setActivePage] = useState(1);
   const handlePageChange = (page) => {

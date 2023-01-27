@@ -4,7 +4,6 @@ import { SideMenuBox } from "./SideMenuBox";
 
 export const SideMenu = ({ isDark }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log(menuOpen);
 
   const closeMenuHandler = () => {
     setMenuOpen(false);

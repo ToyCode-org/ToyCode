@@ -85,5 +85,4 @@ const IssueBoxWrap = styled.div`
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  /* width: 30vw; */
 `;
