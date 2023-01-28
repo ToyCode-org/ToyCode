@@ -44,6 +44,7 @@ export const SideMenu = ({ isDark }) => {
 };
 
 const ZIndex = styled.div`
+  position: relative;
   z-index: 999;
 `;
 
@@ -54,7 +55,7 @@ const Background = styled.div`
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 0;
+  z-index: 1;
   cursor: auto;
 
   animation: backgroundFadein 0.3s;
@@ -75,6 +76,7 @@ const Container = styled.div`
   transform: translate(-50%, -50%);
   transition: 0.3s;
   border-left: ${(props) => props.theme.border};
+  z-index: 10;
 `;
 
 const MenuBox = styled.div`

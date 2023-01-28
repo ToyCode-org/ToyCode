@@ -3,6 +3,7 @@ import { HeaderNav } from "./HeaderNav";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../theme/theme";
 import { useState } from "react";
+import { SideMenu } from "../sideMenu/SideMenu";
 
 export const Layout = ({ children }) => {
   const [isDark, setisDark] = useState(true);
@@ -12,6 +13,7 @@ export const Layout = ({ children }) => {
       <Container>
         <HeaderNav isDark={isDark} setisDark={setisDark} />
         <ChildrenWrap>{children}</ChildrenWrap>
+        <SideMenu isDark={isDark} />
       </Container>
     </ThemeProvider>
   );

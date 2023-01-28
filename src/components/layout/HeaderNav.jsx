@@ -49,7 +49,7 @@ export const HeaderNav = ({ isDark, setisDark }) => {
         })}
       </ButtonsWrap>
       <Darkmode setisDark={setisDark} />
-      <SideMenu isDark={isDark} />
+      {/* <SideMenu isDark={isDark} /> */}
     </Container>
   );
 };

@@ -52,6 +52,17 @@ const Content = styled.div`
   flex-direction: column;
   font-weight: bold;
   animation: colorChanger;
+  @keyframes colorChanger {
+    from {
+      color: black;
+    }
+    50% {
+      color: white;
+    }
+    to {
+      color: black;
+    }
+  }
 
   & span:first-child {
     font-size: 1.5rem;
