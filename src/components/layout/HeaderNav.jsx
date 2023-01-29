@@ -16,7 +16,7 @@ export const HeaderNav = ({ isDark, setisDark }) => {
   const buttonArr = [
     ["Home", "/"],
     ["Kanban Board", "/dndkanban"],
-    ["Pagenation", "/pagenation"],
+    ["Pagination", "/pagenation"],
     ["Infinity scroll", "/infiscroll"],
     ["Slide Show", "/slideshow"],
     ["Carousel Slide Show", "/infislideshow"],
@@ -49,7 +49,6 @@ export const HeaderNav = ({ isDark, setisDark }) => {
         })}
       </ButtonsWrap>
       <Darkmode setisDark={setisDark} />
-      {/* <SideMenu isDark={isDark} /> */}
     </Container>
   );
 };

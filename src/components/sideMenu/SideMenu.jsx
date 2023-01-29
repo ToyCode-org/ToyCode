@@ -26,7 +26,7 @@ export const SideMenu = ({ isDark }) => {
         style={
           menuOpen
             ? { transform: "translate(-50%, -50%)" }
-            : { transform: "translate(50%, -50%)" }
+            : { transform: "translate(150%, -50%)" }
         }
       >
         <MenuBox>
