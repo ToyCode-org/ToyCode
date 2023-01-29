@@ -21,6 +21,7 @@ export const Layout = ({ children }) => {
 
 const Container = styled.div`
   margin: 0 auto;
+  padding-bottom: 50px;
   width: 100%;
   height: 100vh;
   color: ${(props) => props.theme.mainFontColor};
