@@ -1,21 +1,21 @@
 import styled from "styled-components";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../redux/slice/commentSlice";
 import { LoadingSpinner } from "../../util/LoadingSpinner";
 
 export const InfiListBox = () => {
   const dispatch = useDispatch();
-  const { comment, isLoading } = useSelector((state) => state.commentSlice);
+  const { commentScroll, page, isLoading } = useSelector(
+    (state) => state.commentSlice
+  );
 
-  const page = useRef(1);
   const [hasNextPage, setHasNextPage] = useState(true);
 
   const fatchData = () => {
     if (hasNextPage && !isLoading) {
-      dispatch(getComments(page.current));
-      setHasNextPage(comment.length % 20 === 0);
-      page.current += 1;
+      dispatch(getComments(page));
+      setHasNextPage(commentScroll.length % 20 === 0);
     }
   };
 
@@ -31,14 +31,10 @@ export const InfiListBox = () => {
     node && observerRef.current.observe(node);
   };
 
-  useEffect(() => {
-    fatchData();
-  }, []);
-
   return (
     <Container>
       {isLoading ? <LoadingSpinner /> : null}
-      {comment?.map((item, index) => {
+      {commentScroll?.map((item, index) => {
         return (
           <ItemCard key={index}>
             <div>
