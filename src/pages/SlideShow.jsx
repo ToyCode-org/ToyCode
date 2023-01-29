@@ -37,6 +37,23 @@ export const SlideShow = () => {
     }
   };
 
+  const slideButtons = [
+    {
+      name: "prev",
+      handler: (e) => {
+        goPrev(e);
+      },
+      icon: "◀",
+    },
+    {
+      name: "next",
+      handler: (e) => {
+        goNext(e);
+      },
+      icon: "▶",
+    },
+  ];
+
   return (
     <Container>
       <SlideContainer onClick={(e) => e.stopPropagation()}>
@@ -50,23 +67,26 @@ export const SlideShow = () => {
             <img key={index} src={item} alt="slideImg" />
           ))}
         </SlideBox>
+        {slideButtons.map((item, index) => {
+          const { name, handler, icon } = item;
+          return (
+            <PrevNextBtn key={index} className={name} onClick={handler}>
+              {icon}
+            </PrevNextBtn>
+          );
+        })}
+        <NumBox>
+          <span>{`${imageNum + 1} / ${imageArrLength}`}</span>
+          {slideButtons.map((item, index) => {
+            const { name, handler, icon } = item;
+            return (
+              <SubPrevNextBtn key={index} className={name} onClick={handler}>
+                {icon}
+              </SubPrevNextBtn>
+            );
+          })}
+        </NumBox>
       </SlideContainer>
-      <PrevNextBtn
-        className="prev"
-        onClick={(e) => {
-          goPrev(e);
-        }}
-      >
-        {"<"}
-      </PrevNextBtn>
-      <PrevNextBtn
-        className="next"
-        onClick={(e) => {
-          goNext(e);
-        }}
-      >
-        {">"}
-      </PrevNextBtn>
     </Container>
   );
 };
@@ -102,6 +122,8 @@ const SlideContainer = styled.div`
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
+  user-select: none;
+  -webkit-user-select: none;
 `;
 
 const SlideBox = styled.div`
@@ -117,43 +139,63 @@ const SlideBox = styled.div`
 
 const PrevNextBtn = styled.button`
   display: flex;
+  align-content: center;
   justify-content: center;
   align-items: center;
-  width: 4vw;
-  height: 4vh;
-  border-radius: 50%;
-  border: 1px solid lightgray;
-  color: white;
+  width: 45px;
+  height: 40px;
+  border-radius: 15%;
+  border: none;
+  color: #c4c4c4;
   font-size: 1.8rem;
-  background-color: lightgray;
-  position: fixed;
-  left: 25%;
-  top: 40%;
+  background-color: transparent;
+  position: absolute;
+  left: 5%;
+  top: 48%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-
-  transition: 0.3s ease-in;
+  transition: 0.2s ease-in;
 
   &.next {
     position: fixed;
-    left: 75%;
-    top: 40%;
+    left: 95%;
+    top: 48%;
     transform: translate(-50%, -50%);
   }
   &:hover {
-    background-color: gray;
+    color: black;
+    background-color: lightgray;
   }
   &:active {
-    animation: prevNext 0.6s;
-    @keyframes prevNext {
-      from {
-        width: 3.9vw;
-        height: 3.9vh;
-      }
-      to {
-        width: 4vw;
-        height: 4vh;
-      }
-    }
+    transition: 0.1s;
+    color: white;
+  }
+`;
+
+const NumBox = styled.div`
+  padding: 0 5px 0 5px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: black;
+  font-size: 13px;
+  font-weight: bold;
+`;
+
+const SubPrevNextBtn = styled.span`
+  margin-left: 5px;
+  transition: 0.2s;
+  border-radius: 2px;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: #696969;
+  }
+  &:active {
+    background-color: white;
   }
 `;

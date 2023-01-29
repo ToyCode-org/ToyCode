@@ -18,7 +18,7 @@ export const Darkmode = ({ setisDark }) => {
 const DarkmodeToggle = styled.span`
   position: fixed;
   top: 3vw;
-  right: 7vw;
+  right: 10vw;
   & input {
     display: none;
   }
