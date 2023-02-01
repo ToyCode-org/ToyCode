@@ -57,6 +57,9 @@ export const CommentForm = () => {
 const Container = styled.form`
   display: flex;
   justify-content: center;
+  & input {
+    width: 15vw;
+  }
 `;
 
 const SubmitButton = styled.button`

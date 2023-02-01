@@ -58,6 +58,7 @@ export const PageData = () => {
 const Container = styled.div`
   margin: 0 auto;
   margin-top: 20px;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 const CardWrap = styled.div`

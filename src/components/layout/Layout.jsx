@@ -32,5 +32,5 @@ const Container = styled.div`
 const ChildrenWrap = styled.div`
   margin: 0 auto;
   padding-top: 150px;
-  width: 100%;
+  width: 100vw;
 `;

@@ -65,7 +65,7 @@ const Container = styled.div`
   margin: 0;
   display: flex;
   flex-direction: column;
-
+  background-color: ${(props) => props.theme.backgroundColor};
   animation: fadein 0.3s;
 
   & button {

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { SideMenu } from "../sideMenu/SideMenu";
 import { useLocation } from "react-router-dom";
 import { Darkmode } from "./Darkmode";
 
