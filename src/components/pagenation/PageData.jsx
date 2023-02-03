@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Paging } from "./Paging";
 import {
   getCommentsPaging,
   getCommentsAll,
 } from "../../redux/slice/commentSlice";
+import { Paging } from "./Paging";
+import { LoadingSpinner } from "../../util/LoadingSpinner";
 
 export const PageData = () => {
   const dispatch = useDispatch();
-  const { comment, maxLength } = useSelector((state) => state.commentSlice);
+  const { comment, isLoading, maxLength } = useSelector(
+    (state) => state.commentSlice
+  );
 
   const [activePage, setActivePage] = useState(1);
   const handlePageChange = (page) => {
@@ -31,6 +34,7 @@ export const PageData = () => {
 
   return (
     <Container>
+      {isLoading ? <LoadingSpinner /> : null}
       <CardWrap>
         {comment?.map((item, index) => {
           return (

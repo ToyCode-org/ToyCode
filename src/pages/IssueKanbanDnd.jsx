@@ -1,7 +1,7 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getIssues } from "../redux/slice/issueSlice";
-import { useEffect, useState } from "react";
 import { KanbanBox } from "../components/issueKanban/KanbanBox";
 import { IssueForm } from "../components/issueKanban/IssueForm";
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Card } from "./Card";
-import { dndEvent } from "../../util/dndEvent";
 import { useDispatch } from "react-redux";
+import { dndEvent } from "../../util/dndEvent";
+import { Card } from "./Card";
 
 export const KanbanBox = ({
   KanbanStatus,

@@ -1,8 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { HeaderNav } from "./HeaderNav";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../../theme/theme";
-import { useState } from "react";
+import { HeaderNav } from "./HeaderNav";
 import { SideMenu } from "../sideMenu/SideMenu";
 
 export const Layout = ({ children }) => {

@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Darkmode } from "./Darkmode";
 
 export const HeaderNav = ({ isDark, setisDark }) => {
