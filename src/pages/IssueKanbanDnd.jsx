@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getIssues } from "../redux/slice/issueSlice";
 import { KanbanBox } from "../components/issueKanban/KanbanBox";
 import { IssueForm } from "../components/issueKanban/IssueForm";
+import { LoadingSpinner } from "../util/LoadingSpinner";
 
 export const IssueKanbanDnd = () => {
   const dispatch = useDispatch();
-  const { issue, lastSortId } = useSelector((state) => state.issueSlice);
+  const { issue, lastSortId, isLoading } = useSelector(
+    (state) => state.issueSlice
+  );
 
   useEffect(() => {
     dispatch(getIssues());
@@ -40,6 +43,7 @@ export const IssueKanbanDnd = () => {
 
   return (
     <Container>
+      {isLoading ? <LoadingSpinner /> : null}
       <IssueForm lastSortId={lastSortId} />
       <IssueBoxWrap>
         {newIssueArr?.map((item, index) => {

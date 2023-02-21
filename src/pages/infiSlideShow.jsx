@@ -19,14 +19,14 @@ export const InfiSlideShow = () => {
   // transition 시간 초기화
   const [imageNum, setImageNum] = useState(1);
   const [indexPx, setIndexPx] = useState(0);
-  const [indexInit, setIndexInit] = useState(0.1);
+  const [indexInit, setIndexInit] = useState(0.2);
 
   // 상세페이지 호출시 첫 번째 사진 위치로 이동
   useEffect(() => {
     setIndexInit(0);
     setIndexPx(indexPx - indexRight);
     setTimeout(() => {
-      setIndexInit(0.1);
+      setIndexInit(0.2);
     }, 300);
   }, []);
 
@@ -46,7 +46,7 @@ export const InfiSlideShow = () => {
         setIndexPx(indexRight * (-imageArrLength + 2));
       }, 200);
       setTimeout(() => {
-        setIndexInit(0.1);
+        setIndexInit(0.2);
       }, 300);
     }
   };
@@ -67,7 +67,7 @@ export const InfiSlideShow = () => {
         setIndexPx(indexRight * -1);
       }, 200);
       setTimeout(() => {
-        setIndexInit(0.1);
+        setIndexInit(0.2);
       }, 300);
     }
   };

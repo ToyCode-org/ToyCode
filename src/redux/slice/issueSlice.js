@@ -63,11 +63,18 @@ export const issueSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(getIssues.pending, (state, action) => {
+      state.isLoading = true;
+    });
     builder.addCase(getIssues.fulfilled, (state, action) => {
       state.issue = action.payload.sort((a, b) => a.sortId - b.sortId);
       state.lastSortId = action.payload.sort((a, b) => a.sortId - b.sortId)[
         action.payload.length - 1
       ].sortId;
+      state.isLoading = false;
+    });
+    builder.addCase(getIssues.rejected, (state, action) => {
+      state.isLoading = false;
     });
     builder.addCase(addIssues.fulfilled, (state, action) => {
       state.issue.push(action.payload);
