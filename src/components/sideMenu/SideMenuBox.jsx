@@ -1,6 +1,18 @@
 import styled from "styled-components";
 
 export const SideMenuBox = () => {
+  const mkAnchor = (name, link) => {
+    return {
+      name,
+      link,
+    };
+  };
+
+  const connect = [
+    mkAnchor("Github", "https://github.com/LEE-YO-HAN"),
+    mkAnchor("Blog", "https://lee-yo-han.github.io"),
+  ];
+
   return (
     <Container>
       <img
@@ -10,26 +22,18 @@ export const SideMenuBox = () => {
       <p>yoHan</p>
       <Content>
         <span>Connect</span>
-        <span>
-          Github :{" "}
-          <a
-            href="https://github.com/LEE-YO-HAN"
-            target="_blank"
-            rel="noreferrer"
-          >
-            https://github.com/LEE-YO-HAN
-          </a>
-        </span>
-        <span>
-          blog :{" "}
-          <a
-            href="https://hanbbistory.tistory.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            https://hanbbistory.tistory.com/
-          </a>
-        </span>
+        {connect.map((value, index) => {
+          const { name, link } = value;
+          return (
+            <span key={index}>
+              {name} :{" "}
+              <a href={link} target="_blank" rel="noreferrer">
+                {link}
+              </a>
+            </span>
+          );
+        })}
+
         <span>Email : yhl0078@gmail.com</span>
       </Content>
     </Container>

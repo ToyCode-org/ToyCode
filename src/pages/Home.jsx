@@ -90,15 +90,6 @@ export const Home = () => {
           밖에 있던 메뉴 창을 화면 안으로 자연스럽게 이동시키는 방식을 택했다.
         </span>
         <br />
-        <br />
-        <h2>4. 현재 이슈</h2>
-        <a
-          href="https://github.com/ToyCode-org/ToyCode/issues"
-          target="_blank"
-          rel="noreferrer"
-        >
-          이슈 조회하기{" - (go to repository - Click! )"}
-        </a>
       </ContentWrap>
     </Container>
   );
